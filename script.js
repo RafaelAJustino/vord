@@ -224,7 +224,6 @@ const onClickVerdade = (button) => {
         getBtnV().setAttribute("disabled", "");
     }
 
-
     getText().classList.add('active');
     button.classList.add('active');
 
