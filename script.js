@@ -66,7 +66,7 @@ const desafios = [
     'faça um gemido sensual no ouvido da pessoa à sua esquerda',
     'deixe alguém te tocar em uma área íntima ( ela escolhe se é por cima da roupa ou não) (10 segundos)',
     'todos ficam sem roupa e tiram uma foto em grupo para guardar o momento',
-    'faça um strip-tease para alguém específico (até sem roupa)',
+    'faça um strip-tease para alguém específico (até ficar sem roupa)',
     'escolha alguém para dar um beijo no seu pescoço e descer até a sua barriga (20 segundos)',
     'simule um beijo apaixonado no pescoço de alguém por trás (15 segundos)',
     'faça uma dança sensual para o grupo enquanto tira uma peça de roupa',
