@@ -123,10 +123,6 @@ main {
   background-color: gray;
 }
 
-#verdade.active {
-  transform: none;
-}
-
 @keyframes rotate {
   0% {
     transform: rotateY(0deg);
