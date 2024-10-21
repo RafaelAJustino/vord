@@ -2,11 +2,12 @@
   margin: 0;
   padding: 0;
   font-family: "Lilita One", sans-serif;
+  box-sizing: border-box;
 }
 
 html,
 body {
-  height: 100%;
+  height: 100vh;
 }
 
 body {
@@ -30,60 +31,37 @@ main {
 }
 
 .ctn {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 100%;
   padding: 0px 12px;
 }
 
 .fakeHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
   padding-top: 12px;
   color: #fff;
   font-size: 20px;
   text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
 }
 
-#text {
-  display: inline-block;
-  text-transform: uppercase;
-  color: #fff;
-  font-size: 24px;
-  text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
-  transition: transform 0.5s ease;
-  text-align: center;
-}
-
-#text.active {
-  animation: rotate 0.5s linear;
-}
-
-#divBtns {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-bottom: 12px;
-}
-
-.separator {
-  position: absolute;
-  left: calc(50% - 20px);
+.backBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000;
-  /* text-shadow: 4px 3px 1px rgba(0, 0, 0, 1); */
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border-radius: 40px;
-  box-shadow: 4px 3px 1px 0px rgba(0, 0, 0, 0.5);
-  z-index: 10;
+  background-color: transparent;
+  border: none;
+}
+
+.backBtn:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .btn {
@@ -110,17 +88,147 @@ main {
   transform: scale(0.9);
 }
 
-#desafio {
+#selectGame {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+#selectGame.active {
+  animation: rotate 0.5s linear;
+}
+
+#selectGame .games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  height: 100%;
+}
+
+#selectGame .games .btn {
+  width: 100%;
+}
+
+#selectGame .games .vord.btn {
+  background: linear-gradient(
+    120deg,
+    rgba(49, 52, 203, 1) 0%,
+    rgb(226 30 30) 100%
+  );
+}
+
+#selectGame .games .never.btn {
+  background: linear-gradient(
+    120deg,
+    rgb(28, 88, 13) 30%,
+    rgb(48, 141, 30) 80%,
+    rgb(53, 170, 49) 100%
+  );
+}
+
+#never,
+#vord {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+}
+
+#never.active,
+#vord.active {
+  display: flex;
+  animation: rotate 0.5s linear;
+}
+
+#vord {
+  display: none;
+}
+
+.mainText,
+.text {
+  display: inline-block;
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 24px;
+  text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
+  transition: transform 0.5s ease;
+  text-align: center;
+}
+
+.text.active {
+  animation: rotate 0.5s linear;
+}
+
+#divBtnsVord {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.separator {
+  position: absolute;
+  left: calc(50% - 20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  /* text-shadow: 4px 3px 1px rgba(0, 0, 0, 1); */
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 40px;
+  box-shadow: 4px 3px 1px 0px rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+#desafioVord {
   background-color: rgb(226 30 30);
 }
 
-#verdade {
+#verdadeVord {
   background-color: rgba(49, 52, 203, 1);
 }
 
-#verdade:disabled {
+#verdadeVord:disabled {
   cursor: default;
   background-color: gray;
+}
+
+#never {
+  display: none;
+}
+
+#divBtnsNever {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+#btnNever {
+  width: 100%;
+  background: linear-gradient(
+    120deg,
+    rgb(28, 88, 13) 30%,
+    rgb(48, 141, 30) 80%,
+    rgb(53, 170, 49) 100%
+  );
 }
 
 @keyframes rotate {

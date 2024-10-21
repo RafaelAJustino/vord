@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>V || D</title>
+    <title>FunGames</title>
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <style>
@@ -13,22 +13,65 @@
   <body>
     <main>
       <div class="ctn">
-        <span class="fakeHeader">VERDADE ? OU DESAFIO !</span>
+        <div id="selectGame" class="active">
+          <span class="fakeHeader">
+            FUN GAMES
+            <img src="./fire.svg" alt=""
+          /></span>
 
-        <p id="text">
-          Verdade ? ou Desafio ! <br /><br />
-          Fica a dica: <br />
-          O melhor jeito de jogar é intercalando homem e mulher
-        </p>
+          <div class="games">
+            <button class="vord btn" value="VORD" onclick="selectGame(this)">
+              VERDADE ? OU DESAFIO !
+            </button>
+            <button class="never btn" value="NEVER" onclick="selectGame(this)">
+              EU NUNCA...
+            </button>
+          </div>
+        </div>
 
-        <div id="divBtns">
-          <span class="separator">OU</span>
-          <button id="verdade" class="btn" onclick="onClickVerdade(this)">
-            <p>Verdade ?</p>
-          </button>
-          <button id="desafio" class="btn" onclick="onClickDesafio(this)">
-            <p>Desafio !</p>
-          </button>
+        <div id="vord">
+          <span class="fakeHeader">
+            <button class="backBtn" onclick="goInit()">
+              <img src="./back.svg" alt="" />
+            </button>
+            <p>VERDADE ? OU DESAFIO !</p></span
+          >
+
+          <p class="text">
+            Fica a dica: <br />
+            O melhor jeito de jogar é intercalando homem e mulher
+          </p>
+
+          <div id="divBtnsVord">
+            <span class="separator">OU</span>
+            <button id="verdadeVord" class="btn" onclick="onClickVerdade(this)">
+              <p>Verdade ?</p>
+            </button>
+            <button id="desafioVord" class="btn" onclick="onClickDesafio(this)">
+              <p>Desafio !</p>
+            </button>
+          </div>
+        </div>
+
+        <div id="never">
+          <span class="fakeHeader">
+            <button class="backBtn" onclick="goInit()">
+              <img src="./back.svg" alt="" />
+            </button>
+            <p>EU NUNCA...</p>
+          </span>
+
+          <p class="mainText">
+            Eu nunca...
+            <br /><br />
+            <b class="text"> </b>
+          </p>
+
+          <div id="divBtnsNever">
+            <button id="btnNever" class="btn" onclick="onClickEuNunca(this)">
+              <p>Eu nunca...</p>
+            </button>
+          </div>
         </div>
       </div>
     </main>
