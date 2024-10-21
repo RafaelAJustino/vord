@@ -164,9 +164,19 @@ const verdades = [
     'qual a sua opinião sobre brinquedos sexuais?',
     'você acha que tamanho importa? Por quê?',
     'qual foi a situação mais embaraçosa que já passou enquanto fazia sexo?',
+    'Já nadou pelado?',
+    'Com quantas pessoas você já fez sexo na vida?',
+    'Luzes acesas, meia luz ou apagadas?',
+    'Já foi pego no flagra transando ou se masturbando?',
+    'Você gosta de receber sexo oral?',
+    'Já ficou com alguém comprometido?',~
+    'Já broxou?',
+    'Qual a coisa mais estranha que já te pediram na hora H?',
+    'O que para você é proibido no sexo?',
 ];
 
 const euNunca = [
+    "broxei",
     "enviei uma foto íntima.",
     "usei brinquedos durante o sexo.",
     "fiz sexo em um lugar público.",
