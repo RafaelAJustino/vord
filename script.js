@@ -6,7 +6,7 @@ const desafios = [
     'a pessoa à sua esquerda tira uma peça de roupa (5 rodadas) (calçados, meias ou acessórios não contam)',
     'beije o pescoço da pessoa à sua direita (10 segundos)',
     'beije o pescoço da pessoa à sua esquerda (10 segundos)',
-    'se você for mulher, fique sentada no colo de um homem; se você for homem, escolha uma mulher ficar sentada no seu colo (5 rodadas)',
+    'se você for mulher, fique sentada no colo de um homem; se você for homem, escolha uma mulher para ficar sentada no seu colo (5 rodadas)',
     'dê um tapa na bunda da pessoa à sua esquerda',
     'mostre os seios para todos da roda',
     'beije a pessoa à sua direita (10 segundos)',
@@ -94,6 +94,18 @@ const desafios = [
     'escolha alguém, vocês devem se juntar e mandar um nudes explícito para todos da roda',
     'beije a pessoa à sua direita em um lugar que você nunca beijou antes (10 segundos)',
     'tire uma peça de roupa e faça uma pose sexy para o grupo (não pode ser calçados, meias ou acessórios)',
+    'simule a posição papai e mamãe com a pessoa a sua frente (10 segundos)',
+    'deite no colo da pessoa a sua esquerda e receba 5 palmadas na bunda',
+    'deite no colo da pessoa a sua direita e receba 5 palmadas na bunda',
+    'simule a posição 69 com uma pessoa aleatória',
+    'todos da roda colocam a mão nas partes intimas da pessoa a sua dirieta (3 rodadas)',
+    'todas as meninas se beijam',
+    'simule uma cena de gangbang com a garota com mais cara de inocente',
+    'permita que a pessoa a sua direita dê um chupão em você, no lugar que a pessoa a sua esquerda escolher',
+    'escolha: tire toda a parte de cima da pessoa a sua direita ou tire toda a parte de baixo da pessoa a sua esquerda',
+    'passe um cubo de gelo pelo corpo da pessoa a sua direita',
+    'passe a mão em todas as rolas da roda',
+    'passe a mão em todas as bucetas da roda',
 ];
 
 
@@ -109,7 +121,7 @@ const verdades = [
     'já mentiu orgasmo para alguém? Por quê?',
     'qual o lugar mais inusitado que você já transou?',
     'pergunte qualquer coisa para a pessoa à sua direita',
-    'já teve um creampie?',
+    'já gozou/foi gozado dentro?',
     'qual sua posição sexual preferida?',
     'qual posição sexual você mais detesta?',
     'deu sorte, não faça nada e a próxima pessoa deve escolher desafio',
@@ -169,10 +181,13 @@ const verdades = [
     'Luzes acesas, meia luz ou apagadas?',
     'Já foi pego no flagra transando ou se masturbando?',
     'Você gosta de receber sexo oral?',
-    'Já ficou com alguém comprometido?',~
+    'Já ficou com alguém comprometido?', ~
     'Já broxou?',
     'Qual a coisa mais estranha que já te pediram na hora H?',
     'O que para você é proibido no sexo?',
+    'Já transou na cama dos seus pais?',
+    'se tivesse que fazer apenas uma posição sexual na sua vida, qual seria?',
+    'ja usou plug anal? usaria?',
 ];
 
 const euNunca = [
@@ -265,7 +280,7 @@ const euNunca = [
     "enviei uma mensagem de teor sexual logo depois de conhecer alguém.",
     "fiquei com alguém que era casado(a).",
     "tive uma experiência sexual com alguém famoso(a).",
-    "fui a uma festa só para tentar sexo com alguém."
+    "fui a uma festa só para tentar sexo com alguém.",
 ];
 
 
@@ -277,16 +292,21 @@ function selectGame(button) {
         button.classList.remove('active');
     }, 200);
 
-    games.style.display = 'none';
-    games.classList.remove('active')
+    setTimeout(() => {
+        games.style.display = 'none';
+        games.classList.remove('active')
 
-    if (button.value == 'VORD') {
-        document.getElementById('vord').classList.add('active');
-        document.title = 'FUN GAMES - V || D +18'
-    } else if (button.value == 'NEVER') {
-        document.getElementById('never').classList.add('active');
-        document.title = 'FUN GAMES - EU NUNCA'
-    }
+        button.classList.remove('active');
+        getText('#vord .text').classList.remove('active');
+        if (button.value == 'VORD') {
+            document.getElementById('vord').classList.add('active');
+            document.title = 'FUN GAMES - V || D +18'
+        } else if (button.value == 'NEVER') {
+            document.getElementById('never').classList.add('active');
+            document.title = 'FUN GAMES - EU NUNCA'
+        }
+
+    }, 250);
 }
 
 function goInit() {
