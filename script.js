@@ -1,4 +1,71 @@
-const desafios = [
+let cantTruth = false;
+
+const arrego = [
+    'tome um shot',
+    'tome um shot',
+    'tome um shot',
+    'tome um shot',
+    'tome um shot',
+    'mostre a bunda',
+    'faça o próximo desafio junto com o próximo que escolher desafio',
+    'fique sem camisa até a próxima rodada',
+    'de um selinho no poximo que escolher desafio',
+    'tire um desafio novamente <br><br>(não pode amarelar)',
+    'todos tomam um shot',
+    'deixe algeum te fazer um desafio <br><br>(não pode amarelar)'
+]
+
+const esquenta = [
+    'verdade agora não é uma opção',
+    'de um seleinho na pessoa da sua direita',
+    'de um seleinho na pessoa da sua esquerda',
+    'beije lentamente o pescoço da pessoa à sua direita',
+    'beije lentamente o pescoço da pessoa à sua esquerda',
+    'de um selinho triplo',
+    'todas as mulheres trocam de lugar',
+    'todos os homens trocam de lugar',
+    'dê um selinho em todos da roda (sem choro)',
+    'faça um desafio para a pessoa à sua esquerda',
+    'faça um desafio para a pessoa à sua direita',
+    'escolha uma pessoa, ela somente pode escolher desafio',
+    'você somente pode escolher desafio',
+    'Faça uma massagem nos ombros da pessoa à sua esquerda.',
+    'Faça um carinho nas pernas da pessoa à sua direita.',
+    'Dê um beijo suave na barriga da pessoa à sua direita.',
+    'Deixe a pessoa à sua esquerda beijar seu pescoço.',
+    'Beije suavemente o ombro da pessoa à sua esquerda.',
+    'Deixe a pessoa à sua direita morder de leve seu ombro.',
+    'morda suavemente a orelha da pessoa a sua esquerda',
+    'Dê um beijo suave na nuca da pessoa à sua esquerda.',
+    'Dê 3 palmadas na pessoa a sua direita',
+    'faça uma pose, o último que te imitar, tem que te dar um beijo',
+    'escolha duas pessoas para se beijarem',
+    'deixe a pessoa a sua esquerda pegar na sua bunda',
+    'deixe a pessoa a sua direita pegar na sua bunda',
+    'de um selinho encenado na pessoa a sua direita inclinando-a para trás, como nos contos de fadas',
+    'de um beijo no umbigo da pessoa a sua esquerda',
+    'escolha duas pessoas para trocarem de camisa na frente de todos',
+    'beba uma dose no umbigo de alguem',
+    'pegue na bunda da pessoa a sua esquerda',
+    'pegue na bunda da pessoa a sua direita',
+    'moda suavemente os lábios da pessoa a sua esquerda',
+    'moda suavemente os lábios da pessoa a sua direita',
+    'pegue na bunda da pessoa mais avantajada',
+    'pegue nos seios da pessoa mais avantajada',
+    'beije um jogador no lugar que ele escolher',
+    'deixe a pessoa a sua direita autografar sua bunda',
+    'deixe a pessoa a sua esquerda autografor sua bunda',
+    'deixe a pessoa a sua direita autografar seus seios',
+    'deixe a pessoa a sua esquerda autografor seus seios',
+    'deixe alguem morder a sua bunda',
+    'mostre sua roupa intima completa',
+    'tente tirar o sutiã de uma garota, usando apenas uma mão',
+    'o jogador a sua esquerda deve escolher uma parte do copo do jogador a sua direita para voce dar um chupão <br><br>(quero ver a marquinha em)',
+    'deixe alguém te dar um chupão <br><br>(quero ver a marquinha em)',
+    'deixe alguém te fazer algum desafio'
+]
+
+const quente = [
     'verdade agora não é uma opção',
     'escolha alguém para tirar uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
     'tire uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
@@ -20,7 +87,6 @@ const desafios = [
     'todas as mulheres trocam de lugar',
     'todos os homens trocam de lugar',
     'dê um chupão na pessoa à sua esquerda',
-    'dê um selinho em todos da roda (sem choro)',
     'simule uma posição sexual com a pessoa à sua direita <br><br>(30 segundos)',
     'faça um desafio para a pessoa à sua esquerda',
     'faça um desafio para a pessoa à sua direita',
@@ -42,7 +108,6 @@ const desafios = [
     'escolha uma pessoa, ela somente pode escolher desafio',
     'você somente pode escolher desafio',
     'passe a língua suavemente no pescoço de alguém à sua escolha <br><br>(10 segundos)',
-    // Desafios novos
     'faça um strip-tease para o grupo até ficar de roupa íntima',
     'escolha alguém para dar um beijo longo na boca <br><br>(15 segundos)',
     'dê um beijo molhado no peito ou seio de alguém à sua escolha <br><br>(10 segundos)',
@@ -52,7 +117,6 @@ const desafios = [
     'simule uma cena de sexo com alguém à sua esquerda <br><br>(30 segundos)',
     'escolha duas pessoas para simular uma cena íntima com você <br><br>(30 segundos)',
     'troque uma peça de roupa íntima com alguém do grupo <br><br>(se possível)',
-    'dê um tapa erótico na bunda da pessoa à sua frente',
     'deixe a pessoa à sua esquerda acariciar suas costas de maneira sensual <br><br>(30 segundos)',
     'escolha alguém para te beijar por cima da roupa em uma área íntima <br><br>(10 segundos)',
     'faça uma pose erótica com alguém à sua escolha e segure <br><br>(30 segundos)',
@@ -106,6 +170,7 @@ const desafios = [
     'passe um cubo de gelo pelo corpo da pessoa a sua direita',
     'passe a mão em todas as rolas da roda',
     'passe a mão em todas as bucetas da roda',
+    'deixe a pessoa da sua esquerda escrever ou desenhar algo no seu Monte de Vênus <br><br>(pra cima da sua área íntima)'
 ];
 
 const verdades = [
@@ -280,125 +345,163 @@ const euNunca = [
     "fui a uma festa só para tentar sexo com alguém.",
 ];
 
-let verdadeAtivo = '';
-let desafioAtivo = '';
-
-
-function selectGame(button) {
-    const games = document.getElementById('selectGame');
-    button.classList.add('active');
-
-    setTimeout(() => {
-        button.classList.remove('active');
-    }, 200);
-
-    setTimeout(() => {
-        games.style.display = 'none';
-        games.classList.remove('active')
-
-        button.classList.remove('active');
-        getText('#vord .text').classList.remove('active');
-        if (button.value == 'VORD') {
-            document.getElementById('vord').classList.add('active');
-            document.title = 'FUN GAMES - V || D +18'
-        } else if (button.value == 'NEVER') {
-            document.getElementById('never').classList.add('active');
-            document.title = 'FUN GAMES - EU NUNCA'
-        }
-
-    }, 250);
-}
-
-function goInit() {
-    const games = document.getElementById('selectGame');
-
-    games.style.display = 'flex';
-    games.classList.add('active')
-
-    document.getElementById('vord').classList.remove('active');
-    document.getElementById('never').classList.remove('active');
-    document.title = 'FUN GAMES'
-}
-
-//------------------------------ VERDADE OU DESAFIO ------------------------------
-
-
-const getText = (val) => {
-    return document.querySelector(val);
-}
-
-const getDivBtnsVord = () => {
-    return document.getElementById('divBtnsVord')
-}
-
-const getBtnDVord = () => {
-    return document.getElementById('desafioVord')
-}
-
-const getBtnVVord = () => {
-    return document.getElementById('verdadeVord')
-}
-
 function getRandomElement(array) {
     if (array.length === 0) {
         return null;
     }
     const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+
+    const randomItem = array[randomIndex];
+
+    if (randomItem == 'verdade agora não é uma opção') {
+        cantTruth = true;
+
+        const truthBtn = document.getElementById('verdadeVord')
+        truthBtn.setAttribute('disabled', cantTruth);
+    }
+
+    return randomItem;
 }
 
-const onClickDesafio = (button) => {
-    const tempText = getRandomElement(desafios);
+function handleClickEffect(element) {
+    element.classList.add('clicked');
 
-    if (tempText == desafioAtivo) {
-        desafioAtivo = tempText;
-        getText('#vord .text').innerHTML = desafioAtivo;
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            element.classList.remove('clicked');
+        }, 100);
+    });
+}
+
+document.querySelectorAll('.clickable').forEach((element) => {
+    element.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        handleClickEffect(element);
+    });
+});
+
+function handlePlay() {
+    const init = document.getElementById('init');
+    const games = document.getElementById('games');
+
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            init.classList.remove('active');
+        }, 200);
+
+        setTimeout(() => {
+            games.classList.add('active');
+        }, 300);
+    });
+}
+
+function handleChange(e) {
+    const initBtn = document.getElementById('initBtn');
+
+    if (!!e.options.value) {
+        initBtn.classList.add('show')
+    }
+}
+
+function handleInit() {
+    document.querySelectorAll('.ctn').forEach((e) => {
+        e.classList.remove('active');
+    });
+
+    const questionsTxt = document.getElementById('questionsTxt');
+    questionsTxt.innerHTML = "";
+
+    const questions = document.getElementById('questions');
+    const form = document.getElementById('games');
+
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            questions.classList.add('active');
+
+            if (form.options.value == 'NUNCA') {
+                document.getElementById('divBtnsNever').style.display = 'flex';
+                document.getElementById('divBtnsVord').style.display = 'none';
+                document.querySelector('.headerTitle').innerHTML = 'eu nunca...'
+            } else {
+                document.getElementById('divBtnsVord').style.display = 'flex';
+                document.getElementById('divBtnsNever').style.display = 'none';
+                document.querySelector('.headerTitle').innerHTML = 'verdade ? ou desafio !'
+            }
+        }, 300);
+    });
+}
+
+function handleQuestion(arr) {
+    const questionsTxt = document.getElementById('questionsTxt');
+
+    questionsTxt.innerHTML = getRandomElement(arr)
+
+    requestAnimationFrame(() => {
+        questionsTxt.classList.add('rotate');
+
+        setTimeout(() => {
+            questionsTxt.classList.remove('rotate');
+        }, 200);
+    });
+}
+
+function onClickVerdade() {
+    handleQuestion(verdades)
+}
+
+function onClickArreguei() {
+    handleQuestion(arrego)
+}
+
+function onClickDesafio() {
+    const form = document.getElementById('games');
+
+    if (form.options.value == 'ESQUENTA') {
+        handleQuestion(esquenta)
     } else {
-        desafioAtivo = getRandomElement(desafios);
-        getText('#vord .text').innerHTML = desafioAtivo;
+        handleQuestion(quente)
     }
-
-    if (desafioAtivo == 'verdade agora não é uma opção') {
-        getBtnVVord().setAttribute("disabled", "");
-    }
-
-    getText('#vord .text').classList.add('active');
-    button.classList.add('active');
-
-    setTimeout(() => {
-        button.classList.remove('active');
-        getText('#vord .text').classList.remove('active');
-    }, 200);
 }
 
-const onClickVerdade = (button) => {
-    const tempV = getRandomElement(verdades);
-    getText('#vord .text').innerHTML = tempV;
-
-    if (tempV == 'verdade agora não é uma opção') {
-        getBtnVVord().setAttribute("disabled", "");
-    }
-
-    getText('#vord .text').classList.add('active');
-    button.classList.add('active');
-
-    setTimeout(() => {
-        button.classList.remove('active');
-        getText('#vord .text').classList.remove('active');
-    }, 200);
+function onClickEuNunca() {
+    handleQuestion(euNunca)
 }
 
-//------------------------------ EU NUNCA ------------------------------
+function goGames() {
+    document.querySelectorAll('.ctn').forEach((e) => {
+        e.classList.remove('active');
+    });
 
-const onClickEuNunca = (button) => {
-    const tempEN = getRandomElement(euNunca);
-    getText('#never .text').innerHTML = tempEN;
+    const games = document.getElementById('games');
 
-    getText('#never .text').classList.add('active');
-    button.classList.add('active');
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            games.classList.add('active');
+        }, 300);
+    });
+}
 
-    setTimeout(() => {
-        button.classList.remove('active');
-        getText('#never .text').classList.remove('active');
-    }, 200);
+function openModalApoie() {
+    document.getElementById('modelApoie').classList.add('active');
+}
+
+function closeModalApoie() {
+    document.getElementById('modelApoie').classList.remove('active');
+}
+
+function copyPix() {
+    const valuePix = `00020126750014br.gov.bcb.pix01369a684781-85af-4f73-842f-6583bcbfdeb60213Apoio
+            ao APP!5204000053039865802BR5921Rafael Angelo
+            Justino6008Brasilia62090505epfnl63045A5F`
+
+    document.getElementById('modelApoie').classList.remove('active');
+
+    navigator.clipboard.writeText(valuePix)
+        .then(() => {
+            alert('Código copiado!');
+        })
+        .catch(err => {
+            console.error('Erro ao copiar: ', err);
+        });
 }
