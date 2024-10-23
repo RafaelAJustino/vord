@@ -108,9 +108,6 @@ const desafios = [
     'passe a mão em todas as bucetas da roda',
 ];
 
-
-let desafioAtivo = '';
-
 const verdades = [
     'verdade agora não é uma opção',
     'responda qualquer pergunta que alguem te fizer',
@@ -283,6 +280,9 @@ const euNunca = [
     "fui a uma festa só para tentar sexo com alguém.",
 ];
 
+let verdadeAtivo = '';
+let desafioAtivo = '';
+
 
 function selectGame(button) {
     const games = document.getElementById('selectGame');
@@ -322,7 +322,6 @@ function goInit() {
 
 //------------------------------ VERDADE OU DESAFIO ------------------------------
 
-let verdadeAtivo = '';
 
 const getText = (val) => {
     return document.querySelector(val);
