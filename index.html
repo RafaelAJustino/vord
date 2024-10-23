@@ -1,77 +1,160 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FUN GAMES</title>
+    <title>Document</title>
 
     <link rel="stylesheet" type="text/css" href="./style.css" />
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
     </style>
   </head>
   <body>
+    <span id="modelApoie">
+      <button
+        id="closeModelApoie"
+        class="clickable btn"
+        onclick="closeModalApoie()"
+      >
+        <img src="./close.svg" alt="" />
+      </button>
+
+      <p class="title">
+        se gostou do app <br />
+        apoie nosso trabalho!
+      </p>
+
+      <img src="./qrCode.svg" alt="" />
+
+      <div class="copyPasteDiv">
+        <b>pix copia e cola</b>
+
+        <div class="divPixCode">
+          <p>
+            00020126750014br.gov.bcb.pix01369a684781-85af-4f73-842f-6583bcb
+          </p>
+
+          <span class="copyBtn clickable" id="copyPaste" onclick="copyPix()">
+            <img src="./copy.svg" alt="" />
+          </span>
+        </div>
+      </div>
+
+      <p class="title">obrigado!</p>
+    </span>
     <main>
-      <div class="ctn">
-        <div id="selectGame" class="active">
-          <span class="fakeHeader">
-            FUN GAMES
-            <img class="fire" src="./fire.svg" alt=""/>
-          </span>
-
-          <div class="games">
-            <button class="vord btn" value="VORD" onclick="selectGame(this)">
-              VERDADE ? OU DESAFIO !
-            </button>
-            <button class="never btn" value="NEVER" onclick="selectGame(this)">
-              EU NUNCA...
-            </button>
-          </div>
+      <div id="init" class="ctn active">
+        <div class="fakeHeader">
+          <button id="apoie" class="clickable btn" onclick="openModalApoie()">
+            apoie
+          </button>
         </div>
 
-        <div id="vord">
-          <span class="fakeHeader">
-            <button class="backBtn" onclick="goInit()">
-              <img src="./back.svg" alt="" />
-            </button>
-            <p>VERDADE ? OU DESAFIO !</p></span
+        <div class="logoDiv">
+          <img class="logoImg" src="./logo.svg" alt="" />
+          <h1 class="logoTitle">verdadeou ou desafio +</h1>
+        </div>
+
+        <button class="clickable btn playBtn" onclick="handlePlay()">
+          jogar
+        </button>
+      </div>
+
+      <form id="games" class="ctn" onchange="handleChange(this)">
+        <p class="title">verdade ? ou desafio !</p>
+
+        <label class="radio-label">
+          <input
+            type="radio"
+            name="options"
+            class="radio-input"
+            value="ESQUENTA"
+          />
+          <span>
+            <p>Option 1</p>
+            <img class="imgOpt" src="./esquenta.svg" alt="" />
+          </span>
+        </label>
+
+        <label class="radio-label">
+          <input
+            type="radio"
+            name="options"
+            class="radio-input"
+            value="QUENTE"
+          />
+          <span>
+            <p>Option 2</p>
+            <img class="imgOpt" src="./quente.svg" alt="" />
+          </span>
+        </label>
+
+        <p class="title">eu nunca!</p>
+
+        <label class="radio-label">
+          <input
+            type="radio"
+            name="options"
+            class="radio-input"
+            value="NUNCA"
+          />
+          <span>
+            <p>eu nunca</p>
+            <img class="imgOpt" src="./barzinho.svg" alt="" />
+          </span>
+        </label>
+
+        <button
+          type="button"
+          id="initBtn"
+          class="clickable btn"
+          onclick="handleInit()"
+        >
+          iniciar
+        </button>
+      </form>
+
+      <div id="questions" class="ctn">
+        <div class="fakeHeader">
+          <button class="backBtn clickable" onclick="goGames()">
+            <img src="./back.svg" alt="" />
+          </button>
+          <p class="headerTitle"></p>
+        </div>
+
+        <p id="questionsTxt"></p>
+
+        <div id="divBtnsVord">
+          <button id="arrego" class="clickable" onclick="onClickArreguei()">
+            arreguei
+          </button>
+          <span class="separator">OU</span>
+          <button
+            id="verdadeVord"
+            class="clickable btn"
+            onclick="onClickVerdade()"
           >
-
-          <p class="text">
-            Fica a dica: <br />
-            O melhor jeito de jogar é intercalando homem e mulher
-          </p>
-
-          <div id="divBtnsVord">
-            <span class="separator">OU</span>
-            <button id="verdadeVord" class="btn" onclick="onClickVerdade(this)">
-              <p>Verdade ?</p>
-            </button>
-            <button id="desafioVord" class="btn" onclick="onClickDesafio(this)">
-              <p>Desafio !</p>
-            </button>
-          </div>
+            <p>Verdade ?</p>
+          </button>
+          <button
+            id="desafioVord"
+            class="clickable btn"
+            onclick="onClickDesafio()"
+          >
+            <p>Desafio !</p>
+          </button>
         </div>
 
-        <div id="never">
-          <span class="fakeHeader">
-            <button class="backBtn" onclick="goInit()">
-              <img src="./back.svg" alt="" />
-            </button>
-            <p>EU NUNCA...</p>
-          </span>
-
-          <p class="mainText">
-            Eu nunca...
-            <br /><br />
-            <b class="text"> </b>
-          </p>
-
-          <div id="divBtnsNever">
-            <button id="btnNever" class="btn" onclick="onClickEuNunca(this)">
-              <p>Eu nunca...</p>
-            </button>
-          </div>
+        <div id="divBtnsNever">
+          <button
+            id="btnNever"
+            class="clickable btn"
+            onclick="onClickEuNunca()"
+          >
+            <p>Eu nunca...</p>
+          </button>
         </div>
       </div>
     </main>
