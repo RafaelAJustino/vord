@@ -12,7 +12,7 @@ const arrego = [
     'de um selinho no poximo que escolher desafio',
     'tire um desafio novamente <br><br>(não pode amarelar)',
     'todos tomam um shot',
-    'deixe algeum te fazer um desafio <br><br>(não pode amarelar)'
+    'deixe alguém te fazer um desafio <br><br>(não pode amarelar)'
 ]
 
 const esquenta = [
