@@ -42,6 +42,10 @@ main {
   transition: all 0.3s ease;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .clickable.clicked {
   scale: 0.9;
 }
@@ -119,13 +123,15 @@ main {
   border-radius: 5px;
   z-index: 20;
   transition: all 0.3s ease;
+  visibility: hidden;
 }
 
 #modelApoie.active {
   left: calc(50% - 150px);
+  visibility: visible;
 }
 
-#modelApoie::after {
+#modelApoie.active::after {
   content: " ";
   background-color: #0000007e;
   position: absolute;
