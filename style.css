@@ -4,6 +4,11 @@
   font-family: "Lilita One", sans-serif;
   box-sizing: border-box;
   text-transform: uppercase;
+
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none; /* Standard syntax */
 }
 
 body {
@@ -165,14 +170,14 @@ main {
   text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
 }
 
-.divPixCode  {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+.divPixCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-.divPixCode p{
+.divPixCode p {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
