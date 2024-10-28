@@ -109,6 +109,7 @@ main {
     rgb(48, 141, 30) 80%,
     rgb(53, 170, 49) 100%
   );
+  box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 #modelApoie {
@@ -194,6 +195,7 @@ main {
 
 .logoImg {
   width: 250px;
+  filter: drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.5)); 
 }
 
 .logoTitle {
@@ -218,6 +220,7 @@ main {
   color: #fff;
   text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
   font-size: 20px;
+  box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 #games {
@@ -240,6 +243,7 @@ main {
   height: 100px;
   transition: all 0.3s, border-color 0.3s;
   overflow: hidden;
+  box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 .radio-input {
@@ -280,8 +284,15 @@ main {
   z-index: 2;
   transform: translate(500px, calc(100vh - 70px));
 
-  width: 80px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  border: 1px solid #fff;
   border-radius: 5px;
+  color: #fff;
+  text-shadow: 4px 3px 1px rgba(0, 0, 0, 1);
+  background: linear-gradient(120deg, rgb(226 30 30), rgba(49, 52, 203, 1));
+  box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
 #initBtn.show {

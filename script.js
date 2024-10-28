@@ -827,6 +827,20 @@ function onClickEuNunca() {
     handleQuestion(euNunca)
 }
 
+function goHome() {
+    document.querySelectorAll('.ctn').forEach((e) => {
+        e.classList.remove('active');
+    });
+
+    const init = document.getElementById('init');
+
+    requestAnimationFrame(() => {
+        setTimeout(() => {
+            init.classList.add('active');
+        }, 300);
+    });
+}
+
 function goGames() {
     document.querySelectorAll('.ctn').forEach((e) => {
         e.classList.remove('active');
