@@ -79,7 +79,7 @@ const esquenta = [
         'tente tirar o sutiã de uma garota, usando apenas uma mão',
         'o jogador a sua esquerda deve escolher uma parte do copo do jogador a sua direita para voce dar um chupão <br><br>(quero ver a marquinha em)',
         'deixe alguém te dar um chupão <br><br>(quero ver a marquinha em)',
-        'deixe alguém te fazer algum desafio'
+        'deixe alguém te fazer algum desafio',
     ],
     [
         [
@@ -239,7 +239,9 @@ const quente = [
         'passe um cubo de gelo pelo corpo da pessoa a sua direita',
         'passe a mão em todas as rolas da roda',
         'passe a mão em todas as bucetas da roda',
-        'deixe a pessoa da sua esquerda escrever ou desenhar algo no seu Monte de Vênus <br><br>(pra cima da sua área íntima)'
+        'deixe a pessoa da sua esquerda escrever ou desenhar algo no seu Monte de Vênus <br><br>(pra cima da sua área íntima)',
+        'a pessoa mais velha tira uma peça de roupa <br><br>(5 rodadas)  <br><br>(calçados, meias ou acessórios não contam)',
+        'a pessoa mais nova tira uma peça de roupa <br><br>(5 rodadas)  <br><br>(calçados, meias ou acessórios não contam)',
     ],
     [
         "truth is no longer an option",
