@@ -32,9 +32,7 @@
         <b>pix copia e cola</b>
 
         <div class="divPixCode">
-          <p>
-            00020126750014br.gov.bcb.pix01369a684781-85af-4f73-842f-6583bcb
-          </p>
+          <p>00020126750014br.gov.bcb.pix01369a684781-85af-4f73-842f-6583bcb</p>
 
           <span class="copyBtn clickable" id="copyPaste" onclick="copyPix()">
             <img src="./copy.svg" alt="" />
@@ -69,48 +67,65 @@
           </button>
         </div>
 
-        <p class="title">verdade ? ou desafio !</p>
+        <div class="containerGames">
+          <p class="title">verdade ? ou desafio !</p>
 
-        <label class="radio-label">
-          <input
-            type="radio"
-            name="options"
-            class="radio-input"
-            value="ESQUENTA"
-          />
-          <span>
-            <p>Esquenta</p>
-            <img class="imgOpt" src="./esquenta.svg" alt="" />
-          </span>
-        </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="options"
+              class="radio-input"
+              value="ESQUENTA"
+            />
+            <span>
+              <p>Esquenta</p>
+              <img class="imgOpt" src="./esquenta.svg" alt="" />
+            </span>
+          </label>
 
-        <label class="radio-label">
-          <input
-            type="radio"
-            name="options"
-            class="radio-input"
-            value="QUENTE"
-          />
-          <span>
-            <p>Pesadão</p>
-            <img class="imgOpt" src="./quente.svg" alt="" />
-          </span>
-        </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="options"
+              class="radio-input"
+              value="QUENTE"
+            />
+            <span>
+              <p>Pesadão</p>
+              <img class="imgOpt" src="./quente.svg" alt="" />
+            </span>
+          </label>
 
-        <p class="title">eu nunca!</p>
+          <!-- <p class="title">Faz ou Bebe!</p>
 
-        <label class="radio-label">
-          <input
-            type="radio"
-            name="options"
-            class="radio-input"
-            value="NUNCA"
-          />
-          <span>
-            <p>eu nunca</p>
-            <img class="imgOpt" src="./barzinho.svg" alt="" />
-          </span>
-        </label>
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="options"
+              class="radio-input"
+              value="FAZ"
+            />
+            <span>
+              <p>faz ou bebe!</p>
+              <img class="imgOpt" src="./bebum.svg" alt="" />
+            </span>
+          </label> -->
+
+          <p class="title">eu nunca...</p>
+
+          <label class="radio-label">
+            <input
+              type="radio"
+              name="options"
+              class="radio-input"
+              value="NUNCA"
+            />
+            <span>
+              <p>eu nunca...</p>
+              <img class="imgOpt" src="./classico.svg" alt="" />
+            </span>
+          </label>
+        </div>
 
         <button
           type="button"
@@ -160,6 +175,16 @@
             onclick="onClickEuNunca()"
           >
             <p>Eu nunca...</p>
+          </button>
+        </div>
+
+        <div id="divBtnsDoDrink">
+          <button
+            id="btnDoDrink"
+            class="clickable btn"
+            onclick="onClickFazBebe()"
+          >
+            <p>Faz ou Bebe!</p>
           </button>
         </div>
       </div>

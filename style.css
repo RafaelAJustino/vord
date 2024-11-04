@@ -195,7 +195,7 @@ main {
 
 .logoImg {
   width: 250px;
-  filter: drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.5)); 
+  filter: drop-shadow(4px 3px 5px rgba(0, 0, 0, 0.5));
 }
 
 .logoTitle {
@@ -225,10 +225,23 @@ main {
 
 #games {
   display: flex;
+  width: 100%;
+}
+
+#games .containerGames {
+  display: flex;
   align-items: center;
   flex-direction: column;
   gap: 12px;
   width: 100%;
+  height: calc(100vh - 36px);
+  overflow: auto;
+  scrollbar-width: none; /* Firefox */
+  padding-bottom: 100px;
+}
+
+#games .containerGames::-webkit-scrollbar {
+  display: none; /* Chrome, Safari e Edge */
 }
 
 .radio-label {
@@ -240,6 +253,7 @@ main {
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
+  min-height: 100px;
   height: 100px;
   transition: all 0.3s, border-color 0.3s;
   overflow: hidden;
@@ -402,6 +416,26 @@ main {
 }
 
 #btnNever {
+  width: 100%;
+  background: linear-gradient(
+    120deg,
+    rgb(28, 88, 13) 30%,
+    rgb(48, 141, 30) 80%,
+    rgb(53, 170, 49) 100%
+  );
+}
+
+#divBtnsDoDrink {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+#btnDoDrink {
   width: 100%;
   background: linear-gradient(
     120deg,

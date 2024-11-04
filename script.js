@@ -65,8 +65,8 @@ const esquenta = [
         'beba uma dose no umbigo de alguem',
         'pegue na bunda da pessoa a sua esquerda',
         'pegue na bunda da pessoa a sua direita',
-        'moda suavemente os lábios da pessoa a sua esquerda',
-        'moda suavemente os lábios da pessoa a sua direita',
+        'morda suavemente os lábios da pessoa a sua esquerda',
+        'morda suavemente os lábios da pessoa a sua direita',
         'pegue na bunda da pessoa mais avantajada',
         'pegue nos seios da pessoa mais avantajada',
         'beije um jogador no lugar que ele escolher',
@@ -184,7 +184,7 @@ const quente = [
         'venda seus olhos e deixe alguém te beijar em qualquer parte do corpo <br><br>(20 segundos)',
         'faça uma massagem sensual na pessoa à sua frente <br><br>(1 minuto)',
         'dê uma mordida suave no lábio de alguém à sua escolha <br><br>(10 segundos)',
-        'simule uma cena de sexo com alguém à sua esquerda <br><br>(30 segundos)',
+        'simule uma cena de sexo com o jogador à sua esquerda <br><br>(30 segundos)',
         'escolha duas pessoas para simular uma cena íntima com você <br><br>(30 segundos)',
         'deixe a pessoa à sua esquerda acariciar suas costas de maneira sensual <br><br>(30 segundos)',
         'escolha alguém para te beijar por cima da roupa em uma área íntima <br><br>(10 segundos)',
@@ -696,6 +696,13 @@ const euNunca = [
     ]
 ];
 
+const faz = [
+    [
+        '',
+    ],
+    []
+];
+
 const languages = {
     pt: 0,
     en: 1,
@@ -778,12 +785,19 @@ function handleInit() {
         setTimeout(() => {
             questions.classList.add('active');
 
-            if (form.options.value == 'NUNCA') {
+            if (form.options.value == 'FAZ') {
+                document.getElementById('divBtnsDoDrink').style.display = 'flex';
+                document.getElementById('divBtnsNever').style.display = 'none';
+                document.getElementById('divBtnsVord').style.display = 'none';
+                document.querySelector('.headerTitle').innerHTML = 'faz ou bebe'
+            } else if (form.options.value == 'NUNCA') {
                 document.getElementById('divBtnsNever').style.display = 'flex';
+                document.getElementById('divBtnsDoDrink').style.display = 'none';
                 document.getElementById('divBtnsVord').style.display = 'none';
                 document.querySelector('.headerTitle').innerHTML = 'eu nunca...'
             } else {
                 document.getElementById('divBtnsVord').style.display = 'flex';
+                document.getElementById('divBtnsDoDrink').style.display = 'none';
                 document.getElementById('divBtnsNever').style.display = 'none';
                 document.querySelector('.headerTitle').innerHTML = 'verdade ? ou desafio !'
             }
@@ -825,6 +839,10 @@ function onClickDesafio() {
 
 function onClickEuNunca() {
     handleQuestion(euNunca)
+}
+
+function onClickFazBebe() {
+    handleQuestion(faz)
 }
 
 function goHome() {
