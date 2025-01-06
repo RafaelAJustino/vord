@@ -1,16 +1,27 @@
 let cantTruth = false;
+let arregoIndex = 0;
+let esquentaIndex = 0;
+let quenteIndex = 0;
+let verdadeIndex = 0;
+let euNuncaIndex = 0;
+let fazIndex = 0;
+let tempArregoArr = [];
+let tempEsquentaArr = [];
+let tempQuenteArr = [];
+let tempVerdadeArr = [];
+let tempEuNuncaArr = [];
+let tempFazArr = [];
 
 const arrego = [
     [
         'tome um shot',
-        'tome um shot',
-        'tome um shot',
-        'tome um shot',
-        'tome um shot',
         'mostre a bunda',
+        'mostre os peitos',
         'faça o próximo desafio junto com o próximo que escolher desafio',
-        'fique sem camisa até a próxima rodada',
+        'fique sem camisa  até a sua próxima rodada',
+        'fique apenas de roupa intima até a sua próxima rodada',
         'de um selinho no poximo que escolher desafio',
+        'de um beijo no poximo que escolher desafio',
         'tire um desafio novamente <br><br>(não pode amarelar)',
         'todos tomam um shot',
         'deixe alguém te fazer um desafio <br><br>(não pode amarelar)'],
@@ -47,11 +58,16 @@ const esquenta = [
         'escolha uma pessoa, ela somente pode escolher desafio',
         'você somente pode escolher desafio',
         'Faça uma massagem nos ombros da pessoa à sua esquerda.',
+        'Faça uma massagem nos ombros da pessoa à sua direita.',
         'Faça um carinho nas pernas da pessoa à sua direita.',
+        'Faça um carinho nas pernas da pessoa à sua esquerda.',
         'Dê um beijo suave na barriga da pessoa à sua direita.',
+        'Dê um beijo suave na barriga da pessoa à sua esquerda.',
         'Deixe a pessoa à sua esquerda beijar seu pescoço.',
         'Beije suavemente o ombro da pessoa à sua esquerda.',
+        'Beije suavemente o ombro da pessoa à sua direita.',
         'Deixe a pessoa à sua direita morder de leve seu ombro.',
+        'Deixe a pessoa à sua esquerda morder de leve seu ombro.',
         'morda suavemente a orelha da pessoa a sua esquerda',
         'Dê um beijo suave na nuca da pessoa à sua esquerda.',
         'Dê 3 palmadas na pessoa a sua direita',
@@ -59,8 +75,9 @@ const esquenta = [
         'escolha duas pessoas para se beijarem',
         'deixe a pessoa a sua esquerda pegar na sua bunda',
         'deixe a pessoa a sua direita pegar na sua bunda',
-        'de um selinho encenado na pessoa a sua direita inclinando-a para trás, como nos contos de fadas',
+        'de um beijo na pessoa a sua direita inclinando-a para trás, como nos contos de fadas',
         'de um beijo no umbigo da pessoa a sua esquerda',
+        'de um beijo no umbigo da pessoa a sua direita',
         'escolha duas pessoas para trocarem de camisa na frente de todos',
         'beba uma dose no umbigo de alguem',
         'pegue na bunda da pessoa a sua esquerda',
@@ -77,9 +94,18 @@ const esquenta = [
         'deixe alguem morder a sua bunda',
         'mostre sua roupa intima completa',
         'tente tirar o sutiã de uma garota, usando apenas uma mão',
-        'o jogador a sua esquerda deve escolher uma parte do copo do jogador a sua direita para voce dar um chupão <br><br>(quero ver a marquinha em)',
+        'o jogador a sua esquerda deve escolher uma parte do corpo do jogador a sua direita para voce dar um chupão <br><br>(quero ver a marquinha em)',
         'deixe alguém te dar um chupão <br><br>(quero ver a marquinha em)',
         'deixe alguém te fazer algum desafio',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
     ],
     [
         [
@@ -137,39 +163,47 @@ const esquenta = [
 const quente = [
     [
         'verdade agora não é uma opção',
-        'escolha alguém para tirar uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
-        'tire uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
-        'a pessoa à sua direita tira uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
-        'a pessoa à sua esquerda tira uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
+        'beba uma dose no umbigo de alguem',
+        'escolha alguém para tirar uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
+        'tire uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
+        'a pessoa à sua direita tira uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
+        'a pessoa à sua esquerda tira uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
         'beije o pescoço da pessoa à sua direita <br><br>(10 segundos)',
         'beije o pescoço da pessoa à sua esquerda <br><br>(10 segundos)',
         'se você for mulher, fique sentada no colo de um homem; se você for homem, escolha uma mulher para ficar sentada no seu colo <br><br>(5 rodadas)',
         'dê um tapa na bunda da pessoa à sua esquerda',
+        'dê um tapa na bunda da pessoa à sua direita',
         'mostre os seios para todos da roda',
         'beije a pessoa à sua direita <br><br>(10 segundos)',
+        'beije a pessoa à sua esquerda <br><br>(10 segundos)',
         'dê um beijo triplo com as pessoas ao seu lado <br><br>(10 segundos)',
-        'todas as mulheres da roda tiram uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
-        'todos os homens da roda tiram uma peça de roupa <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
+        'todas as mulheres da roda tiram uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
+        'todos os homens da roda tiram uma peça de roupa <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
         'se você for mulher, rebole no colo de um homem; se você for homem, escolha uma mulher para rebolar no seu colo <br><br>(15 segundos)',
-        'fique só de roupa íntima <br><br>(3 rodadas)',
+        'fique só de roupa íntima <br><br>(até a sua próxima rodada)',
         'escolha duas pessoas para se beijarem <br><br>(10 segundos)',
         'se você for mulher, escolha um homem (aleatório) para acariciar seus seios; se você for homem, acaricie os seios de alguma mulher <br><br>(10 segundos) <br><br>(por baixo da roupa)',
         'todas as mulheres trocam de lugar',
         'todos os homens trocam de lugar',
         'dê um chupão na pessoa à sua esquerda',
+        'dê um chupão na pessoa à sua direita',
         'simule uma posição sexual com a pessoa à sua direita <br><br>(30 segundos)',
+        'simule uma posição sexual com a pessoa à sua esquerda <br><br>(30 segundos)',
         'faça um desafio para a pessoa à sua esquerda',
         'faça um desafio para a pessoa à sua direita',
         'tire uma peça de roupa <br><br>(essa não pode ser colocada novamente) <br><br>(calçados, meias ou acessórios não contam)',
         'escolha alguém para tirar uma peça de roupa <br><br>(essa não pode ser colocada novamente) <br><br>(calçados, meias ou acessórios não contam)',
         'todos te dão um tapa na bunda',
+        'de um tapa na bunda de todos',
         'beije a parte íntima da pessoa à sua direita',
-        'deixe a pessoa à sua esquerda tirar suas roupas e fique assim por <br><br>(3 rodadas)',
-        'tire as roupas da pessoa à sua direita e fique assim por <br><br>(3 rodadas)',
+        'beije a parte íntima da pessoa à sua esquerda',
+        'deixe a pessoa à sua esquerda tirar suas roupas e fique assim por <br><br>(até a sua próxima rodada)',
+        'deixe a pessoa à sua direita tirar suas roupas e fique assim por <br><br>(até a sua próxima rodada)',
+        'tire as roupas da pessoa à sua direita e fique assim por <br><br>(até a sua próxima rodada)',
         'venda seus olhos, todas as pessoas do sexo oposto te dão um beijo, adivinhe quem é quem',
         'filme as próximas 5 rodadas <br><br>(apenas desafio pode ser escolhido)',
         'se você for homem, tire o sutiã de uma mulher (aleatória); se for mulher, deixe um homem (aleatório) tirar seu sutiã <br><br>(apenas com a boca)',
-        'você está com sorte: todos devem tirar uma peça de roupa menos você <br><br>(5 rodadas) <br><br>(calçados, meias ou acessórios não contam)',
+        'você está com sorte: todos devem tirar uma peça de roupa menos você <br><br>(até a sua próxima rodada) <br><br>(calçados, meias ou acessórios não contam)',
         'comece beijando o pescoço de alguém da sua escolha e só pare quando chegar às partes íntimas',
         'você é um cavalo, escolha alguém para cavalgar em você <br><br>(30 segundos)',
         'dê uma mordidinha na bunda de todas as mulheres <br><br>(por baixo da roupa)',
@@ -180,23 +214,28 @@ const quente = [
         'passe a língua suavemente no pescoço de alguém à sua escolha <br><br>(10 segundos)',
         'faça um strip-tease para o grupo até ficar de roupa íntima',
         'escolha alguém para dar um beijo longo na boca <br><br>(15 segundos)',
-        'dê um beijo molhado no peito ou seio de alguém à sua escolha <br><br>(10 segundos)',
+        'finja que é um bebe e chupe o peito ou seio de alguém à sua escolha <br><br>(10 segundos)',
         'venda seus olhos e deixe alguém te beijar em qualquer parte do corpo <br><br>(20 segundos)',
         'faça uma massagem sensual na pessoa à sua frente <br><br>(1 minuto)',
         'dê uma mordida suave no lábio de alguém à sua escolha <br><br>(10 segundos)',
         'simule uma cena de sexo com o jogador à sua esquerda <br><br>(30 segundos)',
+        'simule uma cena de sexo com o jogador à sua direita <br><br>(30 segundos)',
         'escolha duas pessoas para simular uma cena íntima com você <br><br>(30 segundos)',
+        'as pessoas ao seu lado devem simular uma cena íntima com você <br><br>(30 segundos)',
         'deixe a pessoa à sua esquerda acariciar suas costas de maneira sensual <br><br>(30 segundos)',
+        'deixe a pessoa à sua direita acariciar suas costas de maneira sensual <br><br>(30 segundos)',
         'escolha alguém para te beijar por cima da roupa em uma área íntima <br><br>(10 segundos)',
-        'faça uma pose erótica com alguém à sua escolha e segure <br><br>(30 segundos)',
+        'faça uma pose erótica com alguém à sua escolha <br><br>(30 segundos)',
         'faça uma dança sensual no colo da pessoa à sua direita <br><br>(1 minuto)',
-        'dê uma lambida no abdômen de alguém à sua escolha <br><br>(10 segundos)',
+        'faça uma dança sensual no colo da pessoa à sua esquerda <br><br>(1 minuto)',
+        'lamba sensualmente o abdômen de alguém à sua escolha <br><br>(10 segundos)',
         'se você for mulher, deixe um homem tirar sua calcinha com os dentes <br><br>(se possível)',
         'faça uma dança provocativa para o grupo <br><br>(1 minuto)',
         'deixe alguém te beijar da cabeça aos pés <br><br>(exceto partes íntimas)',
         'simule uma posição sexual com uma pessoa à sua escolha <br><br>(30 segundos)',
         'coloque uma venda e deixe o grupo te tocar em três partes diferentes',
         'faça um gemido sensual no ouvido da pessoa à sua esquerda',
+        'faça um gemido sensual no ouvido da pessoa à sua direita',
         'deixe alguém te tocar em uma área íntima <br><br>( ela escolhe se é por cima da roupa ou não) <br><br>(10 segundos)',
         'todos ficam sem roupa e tiram uma foto em grupo para guardar o momento',
         'faça um strip-tease para alguém específico <br><br>(até ficar sem roupa)',
@@ -205,6 +244,7 @@ const quente = [
         'faça uma dança sensual para o grupo enquanto tira uma peça de roupa',
         'deixe a pessoa à sua frente passar a mão por baixo de sua roupa e te tocar onde desejar <br><br>(30 segundos)',
         'sussurre uma fantasia erótica no ouvido da pessoa à sua direita',
+        'sussurre uma fantasia erótica no ouvido da pessoa à sua esquerda',
         'deixe uma pessoa à sua escolha te beijar onde ela quiser <br><br>(20 segundos)',
         'beije ou lamba os dedos da pessoa à sua frente <br><br>(15 segundos)',
         'deixe a pessoa à sua esquerda te despir até a roupa íntima <br><br>(se ainda estiver vestindo)',
@@ -212,10 +252,12 @@ const quente = [
         'venda seus olhos e deixe alguém tocar seus lábios com uma parte do corpo; você tem que adivinhar qual parte (10 segundos)',
         'deixe alguém tirar sua roupa íntima e troque de lugar com essa pessoa',
         'escolha alguém para massagear suas partes íntimas por cima da roupa <br><br>(15 segundos)',
-        'faça uma pose sexual em dupla e deixe alguém do grupo fotografar <br><br>(utilizando as roupas que estão vestidos)',
+        'faça uma pose sexual com a pessoa a sua esquerda e deixe alguém do grupo fotografar <br><br>(utilizando as roupas que estão vestidos)',
+        'faça uma pose sexual com a pessoa a sua direita e deixe alguém do grupo fotografar <br><br>(utilizando as roupas que estão vestidos)',
         'beije os pés de alguém <br><br>(10 segundos)',
         'imite sua posição sexual favorita com alguém do grupo <br><br>(30 segundos)',
         'deixe a pessoa à sua direita escolher uma parte do seu corpo para você expor <br><br>(10 segundos)',
+        'deixe a pessoa à sua esquerda escolher uma parte do seu corpo para você expor <br><br>(10 segundos)',
         'sente no colo de alguém e provoque <br><br>(1 minuto)',
         'deixe alguém te beijar por cima da roupa nas partes íntimas <br><br>(15 segundos)',
         'escolha alguém para receber um "beijo erótico" que percorre do pescoço até o umbigo',
@@ -226,12 +268,13 @@ const quente = [
         'todos da roda te mandam um nudes explícito',
         'escolha alguém, vocês devem se juntar e mandar um nudes explícito para todos da roda',
         'beije a pessoa à sua direita em um lugar que você nunca beijou antes <br><br>(10 segundos)',
+        'beije a pessoa à sua esquerda em um lugar que você nunca beijou antes <br><br>(10 segundos)',
         'tire uma peça de roupa e faça uma pose sexy para o grupo <br><br>(não pode ser calçados, meias ou acessórios)',
         'simule a posição papai e mamãe com a pessoa a sua frente <br><br>(10 segundos)',
         'deite no colo da pessoa a sua esquerda e receba 5 palmadas na bunda',
         'deite no colo da pessoa a sua direita e receba 5 palmadas na bunda',
         'simule a posição 69 com uma pessoa aleatória',
-        'todos da roda colocam a mão nas partes intimas da pessoa a sua dirieta <br><br>(3 rodadas)',
+        'todos da roda colocam a mão nas partes intimas da pessoa a sua dirieta <br><br>(até a sua próxima rodada)',
         'todas as meninas se beijam',
         'simule uma cena de gangbang com a garota com mais cara de inocente',
         'permita que a pessoa a sua direita dê um chupão em você, no lugar que a pessoa a sua esquerda escolher',
@@ -240,8 +283,19 @@ const quente = [
         'passe a mão em todas as rolas da roda',
         'passe a mão em todas as bucetas da roda',
         'deixe a pessoa da sua esquerda escrever ou desenhar algo no seu Monte de Vênus <br><br>(pra cima da sua área íntima)',
-        'a pessoa mais velha tira uma peça de roupa <br><br>(5 rodadas)  <br><br>(calçados, meias ou acessórios não contam)',
-        'a pessoa mais nova tira uma peça de roupa <br><br>(5 rodadas)  <br><br>(calçados, meias ou acessórios não contam)',
+        'deixe a pessoa da sua esquerda escrever ou desenhar algo no seu peito',
+        'deixe a pessoa da sua esquerda escrever ou desenhar algo na sua bunda',
+        'a pessoa mais velha tira uma peça de roupa <br><br>(até a sua próxima rodada)  <br><br>(calçados, meias ou acessórios não contam)',
+        'a pessoa mais nova tira uma peça de roupa <br><br>(até a sua próxima rodada)  <br><br>(calçados, meias ou acessórios não contam)',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
+        'faça um desafio para a pessoa a sua esquerda',
+        'faça um desafio para a pessoa a sua direita',
+        'faça um desafio para a pessoa a sua frente',
     ],
     [
         "truth is no longer an option",
@@ -712,6 +766,20 @@ const languages = {
 
 let targetLanguage = 0
 
+function shuffleArray(array) {
+    // Faz uma cópia para não modificar o array original
+    const shuffled = array.slice();
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        // Gera um índice aleatório entre 0 e i (inclusive)
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+
+        // Troca os elementos na posição i e randomIndex
+        [shuffled[i], shuffled[randomIndex]] = [shuffled[randomIndex], shuffled[i]];
+    }
+
+    return shuffled;
+}
 
 function getRandomElement(array) {
     if (array.length === 0) {
@@ -783,6 +851,19 @@ function handleInit() {
     const questions = document.getElementById('questions');
     const form = document.getElementById('games');
 
+    arregoIndex = 0;
+    esquentaIndex = 0;
+    quenteIndex = 0;
+    verdadeIndex = 0;
+    euNuncaIndex = 0;
+    fazIndex = 0;
+    tempArregoArr = shuffleArray(arrego[0]);
+    tempEsquentaArr = shuffleArray(esquenta[0]);
+    tempQuenteArr = shuffleArray(quente[0]);
+    tempVerdadeArr = shuffleArray(verdades[0]);
+    tempEuNuncaArr = shuffleArray(euNunca[0]);
+    tempFazArr = shuffleArray(faz[0]);
+
     requestAnimationFrame(() => {
         setTimeout(() => {
             questions.classList.add('active');
@@ -810,7 +891,8 @@ function handleInit() {
 function handleQuestion(arr) {
     const questionsTxt = document.getElementById('questionsTxt');
 
-    questionsTxt.innerHTML = getRandomElement(arr[targetLanguage])
+    // questionsTxt.innerHTML = getRandomElement(arr[targetLanguage]);
+    // questionsTxt.innerHTML = getRandomElement(arr);
 
     requestAnimationFrame(() => {
         questionsTxt.classList.add('rotate');
@@ -822,29 +904,70 @@ function handleQuestion(arr) {
 }
 
 function onClickVerdade() {
-    handleQuestion(verdades)
+    const questionsTxt = document.getElementById('questionsTxt');
+
+    const adjustedIndex = verdadeIndex % tempVerdadeArr.length;
+
+    questionsTxt.innerHTML = tempVerdadeArr[adjustedIndex];
+
+    handleQuestion(verdades);
+    verdadeIndex++;
 }
 
 function onClickArreguei() {
-    handleQuestion(arrego)
+    const questionsTxt = document.getElementById('questionsTxt');
+
+    const adjustedIndex = arregoIndex % tempArregoArr.length;
+
+    questionsTxt.innerHTML = tempArregoArr[adjustedIndex];
+
+    handleQuestion(arrego);
+    arregoIndex++;
 }
 
 function onClickDesafio() {
     const form = document.getElementById('games');
+    const questionsTxt = document.getElementById('questionsTxt');
 
     if (form.options.value == 'ESQUENTA') {
-        handleQuestion(esquenta)
+
+        const adjustedIndex = esquentaIndex % tempEsquentaArr.length;
+    
+        questionsTxt.innerHTML = tempEsquentaArr[adjustedIndex];
+
+        handleQuestion(esquenta);
+        esquentaIndex++;
     } else {
-        handleQuestion(quente)
+
+        const adjustedIndex = quenteIndex % tempQuenteArr.length;
+    
+        questionsTxt.innerHTML = tempQuenteArr[adjustedIndex];
+
+        handleQuestion(quente);
+        quenteIndex++
     }
 }
 
 function onClickEuNunca() {
-    handleQuestion(euNunca)
+    const questionsTxt = document.getElementById('questionsTxt');
+
+    const adjustedIndex = euNuncaIndex % tempEuNuncaArr.length;
+
+    questionsTxt.innerHTML = tempEuNuncaArr[adjustedIndex];
+
+    handleQuestion(euNunca);
+    euNuncaIndex++;
 }
 
 function onClickFazBebe() {
-    handleQuestion(faz)
+    const questionsTxt = document.getElementById('questionsTxt');
+
+    const adjustedIndex = fazIndex % tempFazArr.length;
+
+    questionsTxt.innerHTML = tempFazArr[adjustedIndex];
+
+    handleQuestion(faz);
+    fazIndex++;
 }
 
 function goHome() {
