@@ -21,9 +21,11 @@ const arrego = [
         'fique sem camisa  até a sua próxima rodada',
         'fique apenas de roupa intima até a sua próxima rodada',
         'de um selinho no poximo que escolher desafio',
+        'de um selinho em todos da roda',
         'de um beijo no poximo que escolher desafio',
         'tire um desafio novamente <br><br>(não pode amarelar)',
         'todos tomam um shot',
+        'cumpra todos os desafios que as pessoas tirarem até a sua próxima rodada',
         'deixe alguém te fazer um desafio <br><br>(não pode amarelar)'],
     [
         'take a drink',
