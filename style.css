@@ -21,6 +21,7 @@ body {
   );
   background-size: 400% 100%;
   animation: backgroundAnimated 60s linear infinite;
+  overflow: hidden;
 }
 
 main {
@@ -112,7 +113,7 @@ main {
   box-shadow: 4px 3px 5px rgba(0, 0, 0, 0.5);
 }
 
-#modelApoie {
+#modalApoie {
   position: absolute;
   top: calc(50% - 250px);
   left: -500px;
@@ -122,7 +123,8 @@ main {
   justify-content: center;
   gap: 12px;
   width: 300px;
-  height: 500px;
+  height: 100%;
+  max-height: 500px;
   background-color: #380f5a;
   transition: all;
   padding: 12px;
@@ -132,12 +134,12 @@ main {
   visibility: hidden;
 }
 
-#modelApoie.active {
+#modalApoie.active {
   left: calc(50% - 150px);
   visibility: visible;
 }
 
-#modelApoie.active::after {
+#modalApoie.active::after {
   content: " ";
   background-color: #0000007e;
   position: absolute;
@@ -146,7 +148,7 @@ main {
   z-index: -1;
 }
 
-#closeModelApoie {
+#closeModalApoie {
   position: absolute;
   top: 0px;
   right: 10px;
@@ -154,11 +156,11 @@ main {
   background-color: transparent;
 }
 
-#modelApoie .title {
+#modalApoie .title {
   text-align: center;
 }
 
-#modelApoie img {
+#modalApoie img {
   width: 100%;
 }
 

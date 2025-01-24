@@ -1,0 +1,70 @@
+#modal {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  max-width: 420px;
+  height: 100%;
+  background-color: #380f5a;
+  transition: all;
+  padding: 12px;
+  border-radius: 5px;
+  z-index: 20;
+  transition: all 0.3s ease;
+  visibility: hidden;
+}
+
+#modal.active {
+  left: 50%;
+  /* transform: translate(0, 0); */
+  visibility: visible;
+}
+
+#modal.active #closeModal {
+  position: absolute;
+  top: 0px;
+  right: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+#modal .title {
+  text-align: center;
+}
+
+#modal img {
+  width: 100%;
+}
+
+#form-jogadores {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: 100%;
+  color: white;
+}
+
+#form-jogadores input {
+  font-size: 18px;
+}
+
+.group-radio {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.group-radio .option {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}

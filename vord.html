@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>?ou! +</title>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="stylesheet" type="text/css" href="./style-2.css" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+    </style>
+  </head>
+  <body>
+    <span id="modal">
+      <button
+        id="closeModal"
+        class="clickable btn"
+        onclick="closeModalJogadores()"
+      >
+        <img src="./close.svg" alt="" />
+      </button>
+
+      <p class="title">Adicione novos jogadores</p>
+
+      <form action="" id="form-jogadores">
+        <label for="nome" class="label-input">
+          <p>Nome</p>
+          <input name="nome" type="text" id="nome" placeholder="Nome" />
+        </label>
+
+        <div for="sexo" class="group-radio">
+          <p>Sexo</p>
+          <div class="option">
+            <label class="label-option">
+              <input type="radio" name="sexo" value="M" id="sexo-m" />
+              M
+            </label>
+            <label class="label-option">
+              <input type="radio" name="sexo" value="F" id="sexo-f" />
+              F
+            </label>
+          </div>
+        </div>
+
+        <div for="preferencia" class="group-radio">
+          <p>Preferência</p>
+          <div class="option">
+            <label class="label-option">
+              <input
+                type="radio"
+                name="preferencia"
+                value="M"
+                id="preferencia-m"
+              />
+              M
+            </label>
+            <label class="label-option">
+              <input
+                type="radio"
+                name="preferencia"
+                value="F"
+                id="preferencia-f"
+              />
+              F
+            </label>
+            <label class="label-option">
+              <input
+                type="radio"
+                name="preferencia"
+                value="MF"
+                id="preferencia-mf"
+              />
+              M & F
+            </label>
+          </div>
+        </div>
+
+        <button type="button" class="clickable btn" onclick="addJogador()">
+          adicionar
+        </button>
+      </form>
+
+      <div id="jogadores"></div>
+    </span>
+
+    <main>
+      <div id="init" class="ctn active">
+        <div class="fakeHeader">
+          <button
+            id="apoie"
+            class="clickable btn"
+            onclick="openModalJogadores()"
+          >
+            jogadores
+          </button>
+        </div>
+
+        <div class="logoDiv">
+          <img class="logoImg" src="./logo.svg" alt="" />
+          <h1 class="logoTitle">verdade ou desafio +</h1>
+        </div>
+
+        <button class="clickable btn playBtn" onclick="handleInit()">
+          jogar
+        </button>
+      </div>
+
+      <div id="questions" class="ctn">
+        <div class="fakeHeader">
+          <button class="backBtn clickable" onclick="goInit()">
+            <img src="./back.svg" alt="" />
+          </button>
+          <p class="headerTitle">Verdade ? ou Desafio !</p>
+        </div>
+
+        <div>
+          <p id="activePlayer"></p>
+          <br />
+          <p id="questionsTxt"></p>
+        </div>
+
+        <div id="divBtnsVord">
+          <button id="dado" class="clickable" onclick="onClickDado()">
+            <img src="./dice.svg" alt="" />
+          </button>
+
+          <button id="arrego" class="clickable" onclick="onClickArreguei()">
+            arreguei
+          </button>
+
+          <span class="separator">OU</span>
+          <button
+            id="verdadeVord"
+            class="clickable btn"
+            onclick="onClickVerdade()"
+          >
+            <p>Verdade ?</p>
+          </button>
+
+          <button
+            id="desafioVord"
+            class="clickable btn"
+            onclick="onClickDesafio()"
+          >
+            <p>Desafio !</p>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <script type="text/javascript" src="./script-2.js"></script>
+  </body>
+</html>

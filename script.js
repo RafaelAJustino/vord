@@ -50,7 +50,6 @@ const quem = [
 
 const arrego = [
     [
-        'role um dado erótico',
         'tome um shot',
         'mostre a bunda',
         'mostre os peitos',
@@ -65,7 +64,6 @@ const arrego = [
         'todos tomam um shot',
         'cumpra todos os desafios que as pessoas tirarem até a sua próxima rodada',
         'deixe alguém te fazer um desafio <br><br>(não pode amarelar)',
-        'role um dado erótico',
     ],
     [
         'take a drink',
@@ -967,11 +965,13 @@ function handleInit() {
                 document.getElementById('divBtnsDoDrink').style.display = 'none';
                 document.getElementById('divBtnsVord').style.display = 'none';
                 document.querySelector('.headerTitle').innerHTML = 'eu nunca...'
-            } else {
+            } else if (form.options.value == 'QUENTE' || form.options.value == 'ESQUENTA') {
                 document.getElementById('divBtnsVord').style.display = 'flex';
                 document.getElementById('divBtnsDoDrink').style.display = 'none';
                 document.getElementById('divBtnsNever').style.display = 'none';
                 document.querySelector('.headerTitle').innerHTML = 'verdade ? ou desafio !'
+            } else if (form.options.value == 'NOVO') {
+                window.location.href = "vord.html"
             }
         }, 300);
     });
@@ -1029,7 +1029,6 @@ function onClickDado() {
     questionsTxt.innerHTML = `${randomAcaoItem} ${randomCorpoItem} da pessoa a sua ${randomQuemItem}`;
 
     handleQuestion(arrego);
-    arregoIndex++;
 }
 
 function onClickDesafio() {
@@ -1070,7 +1069,7 @@ function onClickEuNunca() {
     euNuncaIndex++;
 }
 
-function onClickFazbebê() {
+function onClickFazBebe() {
     const questionsTxt = document.getElementById('questionsTxt');
 
     const adjustedIndex = fazIndex % tempFazArr.length;
@@ -1110,11 +1109,11 @@ function goGames() {
 }
 
 function openModalApoie() {
-    document.getElementById('modelApoie').classList.add('active');
+    document.getElementById('modalApoie').classList.add('active');
 }
 
 function closeModalApoie() {
-    document.getElementById('modelApoie').classList.remove('active');
+    document.getElementById('modalApoie').classList.remove('active');
 }
 
 function copyPix() {
@@ -1122,7 +1121,7 @@ function copyPix() {
             ao APP!5204000053039865802BR5921Rafael Angelo
             Justino6008Brasilia62090505epfnl63045A5F`
 
-    document.getElementById('modelApoie').classList.remove('active');
+    document.getElementById('modalApoie').classList.remove('active');
 
     navigator.clipboard.writeText(valuePix)
         .then(() => {
